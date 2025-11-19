@@ -15,7 +15,6 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture, onCance
   useEffect(() => {
     startCamera();
     return () => stopCamera();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [facingMode]);
 
   const startCamera = async () => {
@@ -52,7 +51,6 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture, onCance
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         
-        // Flip if user facing
         if (facingMode === 'user') {
             context.translate(canvas.width, 0);
             context.scale(-1, 1);
@@ -90,26 +88,26 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture, onCance
       
       {/* Face Guide Overlay */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-        <div className="w-64 h-80 border-2 border-white/30 rounded-[40%] border-dashed"></div>
+        <div className="w-64 h-80 border-2 border-rose-300/40 rounded-[40%] border-dashed"></div>
       </div>
 
       {/* Controls */}
-      <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between z-10">
-        <label className="p-3 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 cursor-pointer">
+      <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent flex items-center justify-between z-10">
+        <label className="p-3 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 cursor-pointer transition-colors">
             <input type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
             <ImageIcon className="text-white w-6 h-6" />
         </label>
         
         <button 
             onClick={takePhoto}
-            className="w-20 h-20 rounded-full border-4 border-white flex items-center justify-center hover:scale-105 transition-transform bg-white/10 backdrop-blur-sm"
+            className="w-20 h-20 rounded-full border-4 border-white flex items-center justify-center hover:scale-105 transition-transform bg-rose-400/20 backdrop-blur-sm"
         >
             <div className="w-16 h-16 bg-white rounded-full"></div>
         </button>
 
         <button 
             onClick={() => setFacingMode(prev => prev === 'user' ? 'environment' : 'user')}
-            className="p-3 rounded-full bg-white/10 backdrop-blur hover:bg-white/20"
+            className="p-3 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 transition-colors"
         >
             <FlipHorizontal className="text-white w-6 h-6" />
         </button>
@@ -117,7 +115,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture, onCance
 
       <button 
         onClick={onCancel}
-        className="absolute top-6 right-6 p-2 rounded-full bg-black/40 text-white backdrop-blur z-20"
+        className="absolute top-6 right-6 p-2 rounded-full bg-black/40 text-white backdrop-blur z-20 hover:bg-black/60 transition-colors"
       >
         <X size={24} />
       </button>
