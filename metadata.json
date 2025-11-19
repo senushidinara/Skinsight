@@ -1,0 +1,7 @@
+{
+  "name": "SkinSight AI",
+  "description": "Your Personal Skin Intelligence Platform using advanced computer vision and AI to analyze skin health, track product efficacy, and detect early signs of damage.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
