@@ -12,6 +12,10 @@
         margin: 0;
         padding: 0;
       }
+      #root {
+        width: 100%;
+        height: 100%;
+      }
       /* Custom scrollbar for sleek look */
       ::-webkit-scrollbar {
         width: 6px;
@@ -33,19 +37,7 @@
         100% { top: 100%; opacity: 0; }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
-  }
-}
-</script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
